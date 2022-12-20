@@ -37,3 +37,20 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Next.js
+.next
+
+# PWA
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
+
+# # Jest test results (used for storybook test running)
+#   in a real project this should be uncommented
+#   keeping it so that code reviewer can open storybook without needing to run
+#   it twice the first time
+# **/.jest-test-results.json
+
+# Secrets
+.env

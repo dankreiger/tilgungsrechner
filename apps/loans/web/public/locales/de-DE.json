@@ -1,0 +1,23 @@
+{
+  "components": {
+    "calculator": {
+      "loanAmount": {
+        "label": "Kreditbetrag (EUR,Ct)"
+      },
+      "localizedCurrency": "EUR",
+      "subtitle": "Finanzierungsdetails",
+      "title": "Tilgungsrechner"
+    }
+  },
+  "hooks": {
+    "useLangSettings": {
+      "tooltipTitle": "Sprache ändern"
+    }
+  },
+  "pages": {
+    "index": {
+      "brandText": "Kredite",
+      "title": "Kredite"
+    }
+  }
+}

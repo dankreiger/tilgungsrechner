@@ -1,0 +1,19 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      run: npm run lint
+    format:
+      run: npm run format
+    build:
+      run: npm run build
+    test:
+      run: npm run test
+commit-msg:
+  commands:
+    check-commits:
+      run: npx commitlint --edit
+post-merge:
+  install-deps-postmerge:
+    tags: deps
+    run: npx install-deps-postmerge

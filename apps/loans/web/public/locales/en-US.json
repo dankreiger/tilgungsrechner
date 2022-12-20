@@ -1,0 +1,23 @@
+{
+  "components": {
+    "calculator": {
+      "loanAmount": {
+        "label": "Loan amount (USD.Ct)"
+      },
+      "localizedCurrency": "USD",
+      "subtitle": "Financial Details",
+      "title": "Amortization calculator"
+    }
+  },
+  "hooks": {
+    "useLangSettings": {
+      "tooltipTitle": "Change language"
+    }
+  },
+  "pages": {
+    "index": {
+      "brandText": "Loans",
+      "title": "Loans"
+    }
+  }
+}
