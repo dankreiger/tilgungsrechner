@@ -1,1 +1,76 @@
-{"numFailedTestSuites":0,"numFailedTests":0,"numPassedTestSuites":2,"numPassedTests":2,"numPendingTestSuites":0,"numPendingTests":0,"numRuntimeErrorTestSuites":0,"numTodoTests":0,"numTotalTestSuites":2,"numTotalTests":2,"openHandles":[],"snapshot":{"added":0,"didUpdate":false,"failure":false,"filesAdded":0,"filesRemoved":0,"filesRemovedList":[],"filesUnmatched":0,"filesUpdated":0,"matched":0,"total":0,"unchecked":0,"uncheckedKeysByFile":[],"unmatched":0,"updated":0},"startTime":1671559692945,"success":true,"testResults":[{"assertionResults":[{"ancestorTitles":["Header"],"duration":26,"failureMessages":[],"fullName":"Header should render successfully","location":null,"status":"passed","title":"should render successfully"}],"endTime":1671559694002,"message":"","name":"/Users/dankreiger/Projects/prototypes/nx/immo/libs/shared/ui/src/lib/header/header.spec.tsx","startTime":1671559693401,"status":"passed","summary":""},{"assertionResults":[{"ancestorTitles":["MoneyInput"],"duration":32,"failureMessages":[],"fullName":"MoneyInput should render successfully","location":null,"status":"passed","title":"should render successfully"}],"endTime":1671559694339,"message":"","name":"/Users/dankreiger/Projects/prototypes/nx/immo/libs/shared/ui/src/lib/money-input/money-input.spec.tsx","startTime":1671559693401,"status":"passed","summary":""}],"wasInterrupted":false}
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 2,
+  "numPassedTests": 2,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 2,
+  "numTotalTests": 2,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1671581959140,
+  "success": true,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "Header"
+          ],
+          "duration": 25,
+          "failureMessages": [],
+          "fullName": "Header should render successfully",
+          "location": null,
+          "status": "passed",
+          "title": "should render successfully"
+        }
+      ],
+      "endTime": 1671581960291,
+      "message": "",
+      "name": "/Users/dankreiger/Projects/prototypes/nx/immo/libs/shared/ui/src/lib/components/header/header.spec.tsx",
+      "startTime": 1671581959654,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "FormattedNumberInput"
+          ],
+          "duration": 32,
+          "failureMessages": [],
+          "fullName": "FormattedNumberInput should render successfully",
+          "location": null,
+          "status": "passed",
+          "title": "should render successfully"
+        }
+      ],
+      "endTime": 1671581960304,
+      "message": "",
+      "name": "/Users/dankreiger/Projects/prototypes/nx/immo/libs/shared/ui/src/lib/components/money-input/money-input.spec.tsx",
+      "startTime": 1671581959654,
+      "status": "passed",
+      "summary": ""
+    }
+  ],
+  "wasInterrupted": false
+}

@@ -1,6 +1,6 @@
 import type { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import createEmotionServer from '@emotion/server/create-instance';
-import { CssBaseline } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 import { createEmotionCache, roboto, theme } from '../utils';
@@ -30,7 +30,7 @@ export default class CustomDocument extends Document<{
             href="https://www.flaticon.com/free-icons/piggy-bank"
             title="piggy bank icons"
             target="_blank"
-            style={{ position: 'absolute', bottom: 0, right: 0, fontSize: 10 }}
+            style={{ position: 'fixed', bottom: 0, right: 0, fontSize: 10 }}
             rel="noreferrer"
           >
             Piggy bank icons von Freepik - Flaticon

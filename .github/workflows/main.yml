@@ -1,0 +1,33 @@
+name: Main
+on:
+  push:
+    branches:
+      - main
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: create env file
+        run: |
+          touch .env
+          echo CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_PROJECT_TOKEN }} >> .env
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: nrwl/nx-set-shas@v3
+      - run: npm ci
+
+      - run: npx nx workspace-lint
+      - run: npx nx format:check --exclude shared-ui
+
+      - name: Run affected apps/libs lint
+        run: npx nx affected --target=lint --parallel=3
+
+      - name: Run affected apps/libs tests
+        run: npx nx affected --target=test --parallel=3 --ci --code-coverage
+
+      - name: Run affected apps/libs build
+        run: npx nx affected --target=build --parallel=3

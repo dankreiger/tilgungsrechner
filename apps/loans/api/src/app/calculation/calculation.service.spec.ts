@@ -17,9 +17,10 @@ describe('CalculationService', () => {
     it('should calculate the monthly installment correctly', () => {
       const input: CalculationInputDto = {
         loanAmount: 250000,
-        yearlyInterestPercent: 2,
-        yearlyAmortizationPercent: 3,
+        borrowingRate: 2,
+        repaymentRate: 3,
         fixedInterestPeriodInYears: 10,
+        includeOverview: false,
       };
 
       const details = calculationService.calculateMonthlyPaymentDetails(input);
@@ -32,8 +33,8 @@ describe('CalculationService', () => {
     it('should return additional details if `includeMonthlyOverview` is true', () => {
       const input: CalculationInputDto = {
         loanAmount: 250000,
-        yearlyInterestPercent: 2,
-        yearlyAmortizationPercent: 3,
+        borrowingRate: 2,
+        repaymentRate: 3,
         fixedInterestPeriodInYears: 2,
         includeOverview: true,
       };

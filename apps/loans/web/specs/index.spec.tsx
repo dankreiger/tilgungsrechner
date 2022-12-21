@@ -7,6 +7,13 @@ jest.mock('next-intl', () => ({
   NextIntlProvider: (children) => <>{children}</>,
 }));
 
+jest.mock('@apollo/client', () => ({
+  ApolloProvider: (children) => <>{children}</>,
+  ApolloClient: jest.fn(),
+  gql: jest.fn(),
+  InMemoryCache: jest.fn(),
+}));
+
 const mockLocaleDict = SupportedLocales;
 jest.mock('next/router', () => ({
   useRouter: jest.fn(() => ({

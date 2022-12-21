@@ -1,6 +1,5 @@
 import { Header } from '@immo/shared/ui';
-import { BarChart } from '@mui/icons-material';
-import { Container } from '@mui/material';
+import BarChart from '@mui/icons-material/BarChart';
 import Head from 'next/head';
 import type { FC, ReactNode } from 'react';
 import { useLangSettings } from '../hooks';
@@ -21,9 +20,7 @@ export const Page: FC<PageProps> = ({ brandText, children, title }) => {
       </Head>
       <Header brandText={brandText} logo={<BarChart />} headerRight={menu} />
 
-      <main>
-        <Container maxWidth="sm">{children}</Container>
-      </main>
+      <main>{children}</main>
     </>
   );
 };

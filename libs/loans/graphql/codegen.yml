@@ -1,0 +1,9 @@
+overwrite: true
+schema: 'libs/loans/graphql/src/lib/schemas/**/*.graphql'
+generates:
+  libs/loans/graphql/src/lib/react.ts:
+    documents: 'libs/loans/graphql/src/lib/operations/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo

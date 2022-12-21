@@ -54,6 +54,16 @@
         "jestConfig": "apps/loans/api/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "Cyan='\\033[0;36m'; NoColor='\\033[0m';echo ${Cyan}Generating GraphQL types and react hooks${NoColor}",
+          "graphql-codegen --config libs/loans/graphql/codegen.yml -w"
+        ],
+        "parallel": false
+      }
     }
   },
   "tags": []

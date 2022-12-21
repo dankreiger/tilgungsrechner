@@ -2,11 +2,37 @@
   "components": {
     "calculator": {
       "loanAmount": {
-        "label": "Kreditbetrag (EUR,Ct)"
+        "label": "Kreditbetrag (EUR,Ct)",
+        "errorMsg": "Kreditbetrag muss eine positive Zahl sein"
+      },
+      "borrowingRate": {
+        "label": "Sollzins (%) p.a.",
+        "errorMsg": "Sollzins muss zwischen 0 und 100 liegen"
+      },
+      "repaymentRate": {
+        "label": "Tilgung (%) p.a.",
+        "errorMsg": "Tilgung muss zwischen 0 und 100 liegen"
+      },
+      "fixedInterestPeriodInYears": {
+        "label": "Sollzinsbindung in Jahren (1-30)",
+        "errorMsg": "Sollzinsbindung muss eine Zahl von 1 bis 30 sein"
+      },
+      "includeOverview": {
+        "label": "Monatliche übersicht anzeigen"
       },
       "localizedCurrency": "EUR",
       "subtitle": "Finanzierungsdetails",
-      "title": "Tilgungsrechner"
+      "title": "Tilgungsrechner (monatliche Rate)",
+      "calculate": "Berechnen",
+      "calculate2": "Berechnen und monatliche Übersicht anzeigen",
+      "rate": "Monatliche Rate",
+      "monthNumber": "Monat",
+      "yearNumber": "Jahr",
+      "fixedMonthlyPayment": "Monatliche Rate",
+      "interestAmount": "Zinsen",
+      "amortizationAmount": "Tilgung",
+      "remainingDebt": "Restschuld",
+      "remainingDebtAtEndOfPeriod": "Restschuld am Ende der Periode"
     }
   },
   "hooks": {

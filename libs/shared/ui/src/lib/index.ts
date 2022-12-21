@@ -1,3 +1,2 @@
-export * from './header';
-export * from './money-input';
-export * from './settings-menu';
+export * from './components';
+export * from './layouts';

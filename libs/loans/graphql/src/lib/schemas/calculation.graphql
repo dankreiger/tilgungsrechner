@@ -1,0 +1,26 @@
+input PaymentDetailsFilter {
+  loanAmount: Float!
+  borrowingRate: Float!
+  repaymentRate: Float!
+  fixedInterestPeriodInYears: Float!
+  includeOverview: Boolean!
+}
+
+type MonthlyPaymentOverviewItem {
+  monthNumber: Int!
+  yearNumber: Int!
+  remainingDebt: Float!
+  fixedMonthlyPayment: Float!
+  interestAmount: Float!
+  amortizationAmount: Float!
+}
+
+type PaymentDetails {
+  fixedMonthlyPayment: Float!
+  remainingDebtAtEndOfFixedInterestPeriod: Float
+  monthlyOverviewList: [MonthlyPaymentOverviewItem]
+}
+
+type Query {
+  loanRepaymentDetails(filter: PaymentDetailsFilter): PaymentDetails!
+}

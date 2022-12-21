@@ -6,13 +6,11 @@ export class CalculationService {
   calculateMonthlyPaymentDetails(
     input: CalculationInputDto
   ): MonthlyPaymentDetails {
-    const { includeOverview } = input;
-
     const monthlyPaymentData = utils.getMonthlyPaymentDataFromInput(input);
 
     return {
       fixedMonthlyPayment: monthlyPaymentData.fixedMonthlyPayment,
-      ...(includeOverview &&
+      ...(input.includeOverview &&
         utils.compileMonthlyPaymentSummary(monthlyPaymentData)),
     };
   }

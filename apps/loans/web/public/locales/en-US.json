@@ -2,11 +2,37 @@
   "components": {
     "calculator": {
       "loanAmount": {
-        "label": "Loan amount (USD.Ct)"
+        "label": "Loan amount (USD.Ct)",
+        "errorMsg": "Loan amount must be a positive number"
+      },
+      "borrowingRate": {
+        "label": "Borrowing Rate (%) APR",
+        "errorMsg": "Borrowing rate must be between 0 and 100"
+      },
+      "repaymentRate": {
+        "label": "Repayment Rate (%) APR",
+        "errorMsg": "Repayment rate must be between 0 and 100"
+      },
+      "fixedInterestPeriodInYears": {
+        "label": "Fixed Interest Period in Years (1-30)",
+        "errorMsg": "Fixed Interest Period must be a number from 1 to 30"
+      },
+      "includeOverview": {
+        "label": "Include monthly overview"
       },
       "localizedCurrency": "USD",
       "subtitle": "Financial Details",
-      "title": "Amortization calculator"
+      "title": "Amortization calculator (monthly)",
+      "calculate": "Calculate",
+      "calculate2": "Calculate and show overview",
+      "rate": "Monthly Rate",
+      "monthNumber": "Month",
+      "yearNumber": "Year",
+      "fixedMonthlyPayment": "Fixed Monthly Payment",
+      "interestAmount": "Interest Amount",
+      "amortizationAmount": "Amortization Amount",
+      "remainingDebt": "Remaining Debt",
+      "remainingDebtAtEndOfPeriod": "Remaining Debt at End of Period"
     }
   },
   "hooks": {

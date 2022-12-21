@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@immo/shared/types": ["libs/shared/types/src/index.ts"],
+      "@immo/loans/graphql": ["libs/loans/graphql/src/index.ts"],
+      "@immo/loans/types": ["libs/loans/types/src/index.ts"],
       "@immo/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },

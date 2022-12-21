@@ -1,13 +1,14 @@
+import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { NextIntlProvider } from 'next-intl';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { FC } from 'react';
-import { ApiProvider } from '../providers';
 import type { messages } from '../public/locales';
-import { createEmotionCache, theme } from '../utils';
-
+import { apolloClient, createEmotionCache, theme } from '../utils';
 import './styles.css';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -20,18 +21,23 @@ const CustomApp: FC<CustomAppProps> = ({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }) => (
-  <CacheProvider value={emotionCache}>
-    <NextIntlProvider messages={pageProps.messages}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <ApiProvider>
-          <Component {...pageProps} />
-        </ApiProvider>
-      </ThemeProvider>
-    </NextIntlProvider>
-  </CacheProvider>
+  <ApolloProvider client={apolloClient}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <CacheProvider value={emotionCache}>
+        <NextIntlProvider messages={pageProps.messages}>
+          <Head>
+            <meta
+              name="viewport"
+              content="initial-scale=1, width=device-width"
+            />
+          </Head>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </NextIntlProvider>
+      </CacheProvider>
+    </LocalizationProvider>
+  </ApolloProvider>
 );
 
 export default CustomApp;

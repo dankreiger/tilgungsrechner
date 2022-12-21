@@ -9,13 +9,12 @@ const yearlyPercentToMonthlyDecimal = pipe(percentToDecimal, yearlyToMonthly);
 
 const getMonthlyPaymentDataFromInput = (input: CalculationInputDto) => {
   const monthlyInterestDecimal = yearlyPercentToMonthlyDecimal(
-    input.yearlyInterestPercent
+    input.borrowingRate
   );
   const monthlyAmortizationDecimal = yearlyPercentToMonthlyDecimal(
-    input.yearlyAmortizationPercent
+    input.repaymentRate
   );
 
-  console.log({ input }, typeof input.loanAmount);
   return {
     fixedInterestPeriodInMonths: input.fixedInterestPeriodInYears * 12,
     fixedMonthlyPayment:
@@ -63,10 +62,10 @@ const compileMonthlyPaymentSummary = (opts: {
         monthlyOverviewList: [
           ...monthlyOverviewList,
           {
-            monthNumber,
-            yearNumber,
+            monthNumber: monthNumber,
+            yearNumber: yearNumber,
             remainingDebt: remainingDebt - amortization,
-            fixedMonthlyPayment,
+            fixedMonthlyPayment: fixedMonthlyPayment,
             interestAmount: interest,
             amortizationAmount: amortization,
           },
@@ -75,7 +74,7 @@ const compileMonthlyPaymentSummary = (opts: {
     },
     {
       remainingDebtAtEndOfFixedInterestPeriod: loanAmount,
-      monthlyOverviewList: [],
+      monthlyOverviewList: [] as MonthlyPaymentOverviewItem[],
     }
   );
 };
