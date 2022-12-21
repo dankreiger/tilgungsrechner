@@ -19,14 +19,11 @@ const isDevelopment = process.env.NODE_ENV === 'development';
       typePaths: [join(lib, 'schemas/**/*.graphql')],
       context: ({ req }) => ({ headers: req.headers }),
       cors: {
-        origin:
-          process.env.NODE_ENV === 'development'
-            ? 'http://localhost:4200'
-            : 'https://tilgungsrechner.vercel.app',
+        origin: ['http://localhost:4200', 'https://tilgungsrechner.vercel.app'],
         credentials: true,
       },
       playground: true,
-      debug: isDevelopment,
+      debug: true,
       formatError: (error: GraphQLError) => {
         const graphQLFormattedError: GraphQLFormattedError = {
           message: error?.extensions?.exception?.code || error?.message,
