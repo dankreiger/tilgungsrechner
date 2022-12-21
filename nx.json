@@ -3,7 +3,7 @@
   "npmScope": "immo",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -11,7 +11,8 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "accessToken": "MWM0MDYxZjctZTVlNy00NDRkLWFmM2UtMDE4OGIxNThlNDczfHJlYWQtd3JpdGU="
       }
     }
   },

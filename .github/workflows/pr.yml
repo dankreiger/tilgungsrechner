@@ -29,5 +29,5 @@ jobs:
         run: npx nx run shared-ui:deploy-storybook
         if: ${{ github.actor == 'dankreiger' }}
       - name: Deploy storybook
-        run: npx surge --project ./dist/storybook/shared-ui --domain trashy-desk.surge.sh
+        run: npx surge --project ./dist/storybook/shared-ui --domain wrathful-approval.surge.sh
         if: ${{ github.actor == 'dankreiger' }}

@@ -1,8 +1,6 @@
 import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { NextIntlProvider } from 'next-intl';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -22,21 +20,16 @@ const CustomApp: FC<CustomAppProps> = ({
   emotionCache = clientSideEmotionCache,
 }) => (
   <ApolloProvider client={apolloClient}>
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <CacheProvider value={emotionCache}>
-        <NextIntlProvider messages={pageProps.messages}>
-          <Head>
-            <meta
-              name="viewport"
-              content="initial-scale=1, width=device-width"
-            />
-          </Head>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </NextIntlProvider>
-      </CacheProvider>
-    </LocalizationProvider>
+    <CacheProvider value={emotionCache}>
+      <NextIntlProvider messages={pageProps.messages}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </NextIntlProvider>
+    </CacheProvider>
   </ApolloProvider>
 );
 
