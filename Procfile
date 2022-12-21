@@ -1,1 +1,1 @@
-web: npx nx run loans-api:serve
+web: node dist/apps/loans/api/main.js
