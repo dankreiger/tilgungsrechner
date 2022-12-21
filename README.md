@@ -84,7 +84,7 @@ npm run dev
 
 ### Visuelle Regressiontests
 
-[![Chromatic](https://img.shields.io/badge/-Chromatic-aaa?style=for-the-badge&logo=chromatic&logoColor=white)](TODO)
+[![Chromatic](https://img.shields.io/badge/-Chromatic-aaa?style=for-the-badge&logo=chromatic&logoColor=white)](https://www.chromatic.com/build?appId=63a2a22702057acaa944445f&number=3)
 
 ---
 

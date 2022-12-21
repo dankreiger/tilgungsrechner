@@ -2,10 +2,6 @@
   "name": "immo",
   "version": "0.0.0",
   "license": "MIT",
-  "engines": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
-  },
   "scripts": {
     "build": "scripty",
     "commit": "scripty",
@@ -16,9 +12,11 @@
     "graph": "scripty",
     "lint": "scripty",
     "start": "scripty",
+    "build-storybook": "scripty",
     "storybook": "scripty",
     "storybook:build": "scripty",
-    "test": "scripty"
+    "test": "scripty",
+    "chromatic": "npx chromatic --project-token=886df7b36b90 --storybook-build-dir dist/storybook/shared-ui"
   },
   "private": true,
   "dependencies": {
@@ -55,7 +53,20 @@
     "regenerator-runtime": "0.13.7",
     "rxjs": "7.8.0",
     "ts-morph": "^17.0.1",
-    "tslib": "2.3.0"
+    "tslib": "2.3.0",
+    "@babel/core": "7.12.13",
+    "@babel/preset-typescript": "7.12.13",
+    "@nrwl/storybook": "15.3.3",
+    "@storybook/addon-a11y": "6.5.14",
+    "@storybook/addon-essentials": "6.5.14",
+    "@storybook/addon-jest": "6.5.14",
+    "@storybook/builder-webpack5": "6.5.14",
+    "@storybook/manager-webpack5": "6.5.14",
+    "@storybook/react": "6.5.14",
+    "@svgr/webpack": "5.4.0",
+    "babel-loader": "8.1.0",
+    "html-webpack-plugin": "5.5.0",
+    "url-loader": "3.0.0"
   },
   "devDependencies": {
     "@babel/preset-react": "7.14.5",
@@ -90,6 +101,7 @@
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
     "babel-jest": "28.1.1",
+    "chromatic": "^6.14.0",
     "concurrently": "7.6.0",
     "cypress": "11.0.0",
     "cz-conventional-changelog": "3.3.0",
@@ -131,5 +143,7 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "immo@0.0.0"
 }
