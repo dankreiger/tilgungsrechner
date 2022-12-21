@@ -16,7 +16,10 @@ const lib = join(process.cwd(), LIB_PATH);
       typePaths: [join(lib, 'schemas/**/*.graphql')],
       context: ({ req }) => ({ headers: req.headers }),
       cors: {
-        origin: 'http://localhost:4200',
+        origin:
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:4200'
+            : 'https://tilgungsrechner.vercel.app',
         credentials: true,
       },
       playground: true,
