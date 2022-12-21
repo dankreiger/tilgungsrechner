@@ -56,6 +56,11 @@ export const Calculator = () => {
 
   const { data: resultData, loading, error } = queryResult || {};
 
+  const allFieldsValid =
+    filter.loanAmount >= 0 &&
+    isBetween({ value: filter.borrowingRate, min: 0, max: 100 }) &&
+    isBetween({ value: filter.repaymentRate, min: 0, max: 100 }) &&
+    Object.values(filter).every((x) => x ?? false);
   return (
     <Box>
       {loading && <CircularProgress />}
@@ -201,7 +206,7 @@ export const Calculator = () => {
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button
-              disabled={Object.values(filter).some((x) => !x)}
+              disabled={!allFieldsValid}
               size="large"
               variant="contained"
               type="submit"
