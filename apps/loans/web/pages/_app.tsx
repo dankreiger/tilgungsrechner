@@ -6,10 +6,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { FC } from 'react';
 import type { messages } from '../public/locales';
-import { apolloClient, createEmotionCache, theme } from '../utils';
+import { apolloClient, clientSideEmotionCache, theme } from '../utils';
 import './styles.css';
-
-const clientSideEmotionCache = createEmotionCache();
 
 interface CustomAppProps extends AppProps<{ messages: typeof messages }> {
   emotionCache: EmotionCache;
