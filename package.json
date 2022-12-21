@@ -69,7 +69,6 @@
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@nestjs/schematics": "9.0.0",
     "@nestjs/testing": "9.0.0",
-    "@next/swc-darwin-arm64": "13.0.7",
     "@nrwl/cypress": "15.3.3",
     "@nrwl/eslint-plugin-nx": "15.3.3",
     "@nrwl/jest": "15.3.3",

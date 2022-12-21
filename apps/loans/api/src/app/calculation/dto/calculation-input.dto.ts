@@ -1,5 +1,5 @@
 import { CalculationState } from '@immo/loans/types';
-import { IsNumber, IsOptional, IsPositive, Max, Min } from 'class-validator';
+import { IsBoolean, IsNumber, IsPositive, Max, Min } from 'class-validator';
 
 export class CalculationInputDto implements CalculationState {
   @IsNumber()
@@ -19,8 +19,7 @@ export class CalculationInputDto implements CalculationState {
   @Max(30)
   readonly fixedInterestPeriodInYears: number;
 
-  @ApiProperty({ required: false })
-  @IsOptional()
+  @IsBoolean()
   readonly includeOverview: boolean;
 
   @IsNumber()
