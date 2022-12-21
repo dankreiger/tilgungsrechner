@@ -10,6 +10,7 @@ import { AppService } from './app.service';
 import { CalculationModule } from './calculation/calculation.module';
 const lib = join(process.cwd(), LIB_PATH);
 
+const isDevelopment = process.env.NODE_ENV === 'development';
 @Module({
   imports: [
     CalculationModule,
@@ -25,7 +26,7 @@ const lib = join(process.cwd(), LIB_PATH);
         credentials: true,
       },
       playground: true,
-      debug: true,
+      debug: isDevelopment,
       formatError: (error: GraphQLError) => {
         const graphQLFormattedError: GraphQLFormattedError = {
           message: error?.extensions?.exception?.code || error?.message,

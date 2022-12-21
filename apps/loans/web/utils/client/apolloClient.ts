@@ -1,9 +1,9 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { isDevelopment } from '../server';
 
-const isDevelopment = process.env.NODE_ENV === 'development';
 export const apolloClient = new ApolloClient({
-  uri: `http://${
-    isDevelopment ? 'localhost:3333' : 'immo-loans-api.herokuapp.com'
-  }/graphql`,
+  uri: isDevelopment
+    ? 'https://localhost:3333/graphql'
+    : 'https://immo-loans-api.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
