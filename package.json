@@ -16,7 +16,7 @@
     "storybook": "scripty",
     "storybook:build": "scripty",
     "test": "scripty",
-    "chromatic": "npx chromatic --project-token=886df7b36b90 --storybook-build-dir dist/storybook/shared-ui"
+    "chromatic": "scripty"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +30,7 @@
     "@nestjs/apollo": "^10.1.7",
     "@nestjs/common": "9.0.0",
     "@nestjs/core": "9.0.0",
-    "@nestjs/graphql": "^10.1.7",
+    "@nestjs/graphql": "10.1.7",
     "@nestjs/platform-express": "9.0.0",
     "@next/font": "13.0.7",
     "apollo-server-express": "^3.11.1",
@@ -38,9 +38,6 @@
     "class-validator": "0.13.2",
     "core-js": "3.6.5",
     "graphql": "^16.6.0",
-    "i18next": "22.4.5",
-    "i18next-browser-languagedetector": "7.0.1",
-    "i18next-http-backend": "2.1.0",
     "next": "13.0.7",
     "next-intl": "2.10.2",
     "next-pwa": "5.6.0",
@@ -53,20 +50,7 @@
     "regenerator-runtime": "0.13.7",
     "rxjs": "7.8.0",
     "ts-morph": "^17.0.1",
-    "tslib": "2.3.0",
-    "@babel/core": "7.12.13",
-    "@babel/preset-typescript": "7.12.13",
-    "@nrwl/storybook": "15.3.3",
-    "@storybook/addon-a11y": "6.5.14",
-    "@storybook/addon-essentials": "6.5.14",
-    "@storybook/addon-jest": "6.5.14",
-    "@storybook/builder-webpack5": "6.5.14",
-    "@storybook/manager-webpack5": "6.5.14",
-    "@storybook/react": "6.5.14",
-    "@svgr/webpack": "5.4.0",
-    "babel-loader": "8.1.0",
-    "html-webpack-plugin": "5.5.0",
-    "url-loader": "3.0.0"
+    "tslib": "2.3.0"
   },
   "devDependencies": {
     "@babel/preset-react": "7.14.5",
@@ -143,7 +127,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "immo@0.0.0"
+  }
 }

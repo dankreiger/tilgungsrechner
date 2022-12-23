@@ -2,7 +2,6 @@ import { Calculate, Home } from '@mui/icons-material';
 import { Box } from '@mui/system';
 import { withTests } from '@storybook/addon-jest';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import { useTranslation } from 'react-i18next';
 import results from '../../../../.jest-test-results.json';
 import { SettingsMenu } from '../settings-menu';
 import { Header } from './header';
@@ -26,13 +25,16 @@ const Story: ComponentMeta<typeof Header> = {
 };
 export default Story;
 
-const Template: ComponentStory<typeof Header> = (args) => {
+const Template: ComponentStory<typeof Header> = (args, { globals }) => {
   // injects i18n for demo purposes
-  const { t } = useTranslation();
-  const tPages = args?.pages?.map(t);
-
+  const { locale, messages } = globals;
+  const { translation } = messages[locale];
   return (
-    <Header {...args} brandText={t(args.brandText as string)} pages={tPages} />
+    <Header
+      {...args}
+      brandText={translation.brandText}
+      pages={['products', 'pricing', 'contact'].map((x) => translation[x])}
+    />
   );
 };
 
@@ -56,8 +58,6 @@ AllProps.args = {
 
 export const TwoSettingsMenus = Template.bind({});
 TwoSettingsMenus.args = {
-  brandText: 'brandText',
-  pages: ['products', 'pricing', 'contact'],
   headerRight: (
     <Box sx={{ display: 'flex' }}>
       <SettingsMenu
@@ -88,7 +88,6 @@ TwoSettingsMenus.args = {
 
 export const NoPages = Template.bind({});
 NoPages.args = {
-  brandText: 'brandText',
   headerRight: (
     <SettingsMenu
       avatarProps={{
@@ -104,7 +103,4 @@ NoPages.args = {
 };
 
 export const NoSettings = Template.bind({});
-NoSettings.args = {
-  brandText: 'brandText',
-  pages: ['products', 'pricing', 'contact'],
-};
+NoSettings.args = {};

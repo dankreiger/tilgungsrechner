@@ -70,6 +70,12 @@ npm run dev
 ## http://localhost:3333 - api (backend)
 ```
 
+Anmerkung:
+
+Man kann die GraphQL Api suchen und testen mit [GraphQL Playground](https://www.apollographql.com/docs/apollo-server/testing/graphql-playground/).
+
+http://localhost:3333/graphql - GraphQL Playground
+
 ---
 
 ## Deployments

@@ -19,24 +19,7 @@ describe('CalculationService', () => {
         loanAmount: 250000,
         borrowingRate: 2,
         repaymentRate: 3,
-        fixedInterestPeriodInYears: 10,
-        includeOverview: false,
-      };
-
-      const details = calculationService.calculateMonthlyPaymentDetails(input);
-
-      expect(details.fixedMonthlyPayment).toBeCloseTo(1041.666);
-      expect(details.remainingDebtAtEndOfFixedInterestPeriod).toBeUndefined();
-      expect(details.monthlyOverviewList).toBeUndefined();
-    });
-
-    it('should return additional details if `includeMonthlyOverview` is true', () => {
-      const input: CalculationInputDto = {
-        loanAmount: 250000,
-        borrowingRate: 2,
-        repaymentRate: 3,
         fixedInterestPeriodInYears: 2,
-        includeOverview: true,
       };
 
       const details = calculationService.calculateMonthlyPaymentDetails(input);

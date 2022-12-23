@@ -24,12 +24,6 @@ export const calculatorReducer: CalculatorReducer = (state, action) => {
         fixedInterestPeriodInYears: action.payload,
       };
 
-    case ActionType.SET_INCLUDE_OVERVIEW:
-      return {
-        ...state,
-        includeOverview: action.payload,
-      };
-
     default:
       throw new Error('Invalid action type');
   }

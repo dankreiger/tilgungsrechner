@@ -3,7 +3,6 @@ input PaymentDetailsFilter {
   borrowingRate: Float!
   repaymentRate: Float!
   fixedInterestPeriodInYears: Float!
-  includeOverview: Boolean!
 }
 
 type MonthlyPaymentOverviewItem {

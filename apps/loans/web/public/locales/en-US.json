@@ -17,9 +17,6 @@
         "label": "Fixed Interest Period in Years (1-30)",
         "errorMsg": "Fixed Interest Period must be a number from 1 to 30"
       },
-      "includeOverview": {
-        "label": "Include monthly overview"
-      },
       "localizedCurrency": "USD",
       "subtitle": "Financial Details",
       "title": "Amortization calculator (monthly)",

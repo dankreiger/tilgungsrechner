@@ -17,9 +17,6 @@
         "label": "Sollzinsbindung in Jahren (1-30)",
         "errorMsg": "Sollzinsbindung muss eine Zahl von 1 bis 30 sein"
       },
-      "includeOverview": {
-        "label": "Monatliche übersicht anzeigen"
-      },
       "localizedCurrency": "EUR",
       "subtitle": "Finanzierungsdetails",
       "title": "Tilgungsrechner (monatliche Rate)",

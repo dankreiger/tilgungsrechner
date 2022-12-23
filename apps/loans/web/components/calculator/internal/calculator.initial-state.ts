@@ -5,5 +5,4 @@ export const calculatorInitialState: CalculationState = {
   borrowingRate: undefined,
   repaymentRate: undefined,
   fixedInterestPeriodInYears: 1,
-  includeOverview: true,
 };

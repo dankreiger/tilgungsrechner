@@ -10,8 +10,7 @@ export class CalculationService {
 
     return {
       fixedMonthlyPayment: monthlyPaymentData.fixedMonthlyPayment,
-      ...(input.includeOverview &&
-        utils.compileMonthlyPaymentSummary(monthlyPaymentData)),
+      ...utils.compileMonthlyPaymentSummary(monthlyPaymentData),
     };
   }
 }

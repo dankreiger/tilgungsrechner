@@ -14,10 +14,6 @@ type CalculatorAction =
   | {
       type: typeof ActionType.SET_PAYOUT_DATE;
       payload: Date | undefined;
-    }
-  | {
-      type: typeof ActionType.SET_INCLUDE_OVERVIEW;
-      payload: boolean;
     };
 
 export type CalculatorReducer = Reducer<CalculationState, CalculatorAction>;

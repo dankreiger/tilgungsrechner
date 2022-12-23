@@ -5,10 +5,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import Box from '@mui/material/Box';
-import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green } from '@mui/material/colors';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Snackbar from '@mui/material/Snackbar';
 import Table from '@mui/material/Table';
 import { useTranslations } from 'next-intl';
@@ -63,7 +61,16 @@ export const Calculator = () => {
     Object.values(filter).every((x) => x ?? false);
   return (
     <Box>
-      {loading && <CircularProgress />}
+      {loading && (
+        <CircularProgress
+          sx={{
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+      )}
       <Snackbar
         open={showErrorToast}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -188,32 +195,16 @@ export const Calculator = () => {
               }
             />
           </Box>
-          <Box>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={filter.includeOverview}
-                  onChange={(e) => {
-                    dispatch({
-                      type: ActionType.SET_INCLUDE_OVERVIEW,
-                      payload: e.target.checked,
-                    });
-                  }}
-                />
-              }
-              label={t('includeOverview.label')}
-            />
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button
-              disabled={!allFieldsValid}
-              size="large"
-              variant="contained"
-              type="submit"
-            >
-              {filter.includeOverview ? t('calculate2') : t('calculate')}
-            </Button>
-          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            disabled={!allFieldsValid}
+            size="large"
+            variant="contained"
+            type="submit"
+          >
+            {t('calculate')}
+          </Button>
         </Box>
       </Box>
       {queryResult.data?.loanRepaymentDetails && (
@@ -264,57 +255,54 @@ export const Calculator = () => {
               )}
             </Typography>
           </Box>
-          {filter.includeOverview && (
-            <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>{t('monthNumber')}</TableCell>
-                    <TableCell align="right">{t('yearNumber')}</TableCell>
-                    <TableCell align="right">
-                      {t('fixedMonthlyPayment')}
-                    </TableCell>
-                    <TableCell align="right">{t('interestAmount')}</TableCell>
-                    <TableCell align="right">
-                      {t('amortizationAmount')}
-                    </TableCell>
-                    <TableCell align="right">{t('remainingDebt')}</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {resultData.loanRepaymentDetails.monthlyOverviewList?.map(
-                    (row) => (
-                      <TableRow
-                        key={row.monthNumber}
-                        sx={{
-                          '&:last-child td, &:last-child th': { border: 0 },
-                        }}
-                      >
-                        <TableCell component="th" scope="row">
-                          {row.monthNumber}
-                        </TableCell>
-                        <TableCell component="th" scope="row">
-                          {row.yearNumber}
-                        </TableCell>
-                        <TableCell align="right">
-                          {row.fixedMonthlyPayment.toFixed(2)}
-                        </TableCell>
-                        <TableCell align="right">
-                          {row.interestAmount.toFixed(2)}
-                        </TableCell>
-                        <TableCell align="right">
-                          {row.amortizationAmount.toFixed(2)}
-                        </TableCell>
-                        <TableCell align="right">
-                          {row.remainingDebt.toFixed(2)}
-                        </TableCell>
-                      </TableRow>
-                    )
-                  )}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          )}
+
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>{t('monthNumber')}</TableCell>
+                  <TableCell align="right">{t('yearNumber')}</TableCell>
+                  <TableCell align="right">
+                    {t('fixedMonthlyPayment')}
+                  </TableCell>
+                  <TableCell align="right">{t('interestAmount')}</TableCell>
+                  <TableCell align="right">{t('amortizationAmount')}</TableCell>
+                  <TableCell align="right">{t('remainingDebt')}</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {resultData.loanRepaymentDetails.monthlyOverviewList?.map(
+                  (row) => (
+                    <TableRow
+                      key={row.monthNumber}
+                      sx={{
+                        '&:last-child td, &:last-child th': { border: 0 },
+                      }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {row.monthNumber}
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {row.yearNumber}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.fixedMonthlyPayment.toFixed(2)}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.interestAmount.toFixed(2)}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.amortizationAmount.toFixed(2)}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.remainingDebt.toFixed(2)}
+                      </TableCell>
+                    </TableRow>
+                  )
+                )}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Box>
       )}
     </Box>
