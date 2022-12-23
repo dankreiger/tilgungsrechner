@@ -1,7 +1,7 @@
 import { Calculate, Home } from '@mui/icons-material';
 import { Box } from '@mui/system';
 import { withTests } from '@storybook/addon-jest';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, StoryFn } from '@storybook/react';
 import results from '../../../../.jest-test-results.json';
 import { SettingsMenu } from '../settings-menu';
 import { Header } from './header';
@@ -25,17 +25,8 @@ const Story: ComponentMeta<typeof Header> = {
 };
 export default Story;
 
-const Template: ComponentStory<typeof Header> = (args, { globals }) => {
-  // injects i18n for demo purposes
-  const { locale, messages } = globals;
-  const { translation } = messages[locale];
-  return (
-    <Header
-      {...args}
-      brandText={translation.brandText}
-      pages={['products', 'pricing', 'contact'].map((x) => translation[x])}
-    />
-  );
+const Template: StoryFn<typeof Header> = (args) => {
+  return <Header {...args} />;
 };
 
 export const AllProps = Template.bind({});
@@ -58,6 +49,7 @@ AllProps.args = {
 
 export const TwoSettingsMenus = Template.bind({});
 TwoSettingsMenus.args = {
+  brandText: 'brandText',
   headerRight: (
     <Box sx={{ display: 'flex' }}>
       <SettingsMenu
@@ -103,4 +95,6 @@ NoPages.args = {
 };
 
 export const NoSettings = Template.bind({});
-NoSettings.args = {};
+NoSettings.args = {
+  pages: ['products', 'pricing', 'contact'],
+};

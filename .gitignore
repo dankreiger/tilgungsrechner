@@ -54,3 +54,6 @@ Thumbs.db
 
 # Secrets
 .env
+
+# Storybook
+storybook-static

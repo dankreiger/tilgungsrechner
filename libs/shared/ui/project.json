@@ -21,19 +21,9 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
       "options": {
-        "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/shared-ui",
-        "config": {
-          "configFolder": "libs/shared/ui/.storybook"
-        }
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
+        "command": "storybook build -c libs/shared/ui/.storybook -o dist/storybook/shared-ui"
       }
     },
     "serve": {
@@ -46,18 +36,9 @@
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "nx:run-commands",
       "options": {
-        "uiFramework": "@storybook/react",
-        "port": 4400,
-        "config": {
-          "configFolder": "libs/shared/ui/.storybook"
-        }
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
+        "command": "storybook dev --port 4400 -c libs/shared/ui/.storybook"
       }
     },
     "test-generate-output": {
