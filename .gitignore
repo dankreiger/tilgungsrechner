@@ -47,13 +47,11 @@ Thumbs.db
 **/public/fallback-*.js
 
 # # Jest test results (used for storybook test running)
-#   in a real project this should be uncommented
-#   keeping it so that code reviewer can open storybook without needing to run
-#   it twice the first time
-# **/.jest-test-results.json
+**/.jest-test-results.json
 
 # Secrets
 .env
 
 # Storybook
 storybook-static
+
