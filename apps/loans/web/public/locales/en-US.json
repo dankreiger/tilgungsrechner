@@ -7,15 +7,15 @@
       },
       "borrowingRate": {
         "label": "Borrowing Rate (%) APR",
-        "errorMsg": "Borrowing rate must be between 0 and 100"
+        "errorMsg": "Borrowing rate must be between {min} and {max}"
       },
       "repaymentRate": {
         "label": "Repayment Rate (%) APR",
-        "errorMsg": "Repayment rate must be between 0 and 100"
+        "errorMsg": "Repayment rate must be between {min} and {max}"
       },
       "fixedInterestPeriodInYears": {
-        "label": "Fixed Interest Period in Years (1-30)",
-        "errorMsg": "Fixed Interest Period must be a number from 1 to 30"
+        "label": "Fixed Interest Period in Years ({min}-{max})",
+        "errorMsg": "Fixed Interest Period must be a number from {min} to {max}"
       },
       "localizedCurrency": "USD",
       "subtitle": "Financial Details",
@@ -24,7 +24,6 @@
       "calculate2": "Calculate and show overview",
       "rate": "Monthly Rate",
       "monthNumber": "Month",
-      "yearNumber": "Year",
       "fixedMonthlyPayment": "Fixed Monthly Payment",
       "interestAmount": "Interest Amount",
       "amortizationAmount": "Amortization Amount",
@@ -32,6 +31,7 @@
       "remainingDebtAtEndOfPeriod": "Remaining Debt at End of Period"
     }
   },
+  "currency": "USD",
   "hooks": {
     "useLangSettings": {
       "tooltipTitle": "Change language"

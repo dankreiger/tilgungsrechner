@@ -7,7 +7,7 @@ export type MoneyInputInnerProps = Readonly<NumericFormatProps> &
     id: SupportedCurrency;
   }>;
 
-export type MoneyInputProps = Readonly<{
+export type FormattedNumberInputProps = Readonly<{
   /**
    * Die Währungssymbol anzuzeigen
    * @default 'EUR'
@@ -36,7 +36,7 @@ export type MoneyInputProps = Readonly<{
   /**
    * Der Wert des Inputs
    */
-  value?: number;
+  value?: number | string;
   /**
    * MUI variant
    * @default 'standard'

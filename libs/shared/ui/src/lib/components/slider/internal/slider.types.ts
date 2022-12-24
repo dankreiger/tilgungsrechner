@@ -5,6 +5,8 @@ export type SliderProps = {
   step?: number;
   value: number;
   errorMsg?: string;
+  defaultValue?: number;
+  name: string;
   onChange: (
     event: Event,
     value: number | number[],

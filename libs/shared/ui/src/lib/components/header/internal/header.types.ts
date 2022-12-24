@@ -1,9 +1,5 @@
-import type { ComponentProps, ReactNode } from 'react';
-import { SettingsMenu } from '../../settings-menu';
+import type { ReactNode } from 'react';
 
-type Settings = ComponentProps<typeof SettingsMenu> & {
-  key: string;
-};
 export interface HeaderProps {
   brandText?: string | null;
   logo?: ReactNode;

@@ -5,7 +5,7 @@ import TextField, { TextFieldProps } from '@mui/material/TextField';
 import { ChangeEvent, useMemo, useState } from 'react';
 
 export const MoneyInputAlt = ({
-  locale = 'de-DE',
+  locale = 'de',
   ...props
 }: TextFieldProps & {
   locale: string;

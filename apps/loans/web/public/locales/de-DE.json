@@ -6,16 +6,16 @@
         "errorMsg": "Kreditbetrag muss eine positive Zahl sein"
       },
       "borrowingRate": {
-        "label": "Sollzins (%) p.a.",
-        "errorMsg": "Sollzins muss zwischen 0 und 100 liegen"
+        "label": "Sollzins % p.a.",
+        "errorMsg": "Sollzins muss zwischen {min} und {max} liegen"
       },
       "repaymentRate": {
-        "label": "Tilgung (%) p.a.",
-        "errorMsg": "Tilgung muss zwischen 0 und 100 liegen"
+        "label": "Tilgung % p.a.",
+        "errorMsg": "Tilgung muss zwischen {min} und {max} liegen"
       },
       "fixedInterestPeriodInYears": {
-        "label": "Sollzinsbindung in Jahren (1-30)",
-        "errorMsg": "Sollzinsbindung muss eine Zahl von 1 bis 30 sein"
+        "label": "Sollzinsbindung in Jahren ({min}-{max})",
+        "errorMsg": "Sollzinsbindung muss eine Zahl von {min} bis {max} sein"
       },
       "localizedCurrency": "EUR",
       "subtitle": "Finanzierungsdetails",
@@ -24,7 +24,6 @@
       "calculate2": "Berechnen und monatliche Übersicht anzeigen",
       "rate": "Monatliche Rate",
       "monthNumber": "Monat",
-      "yearNumber": "Jahr",
       "fixedMonthlyPayment": "Monatliche Rate",
       "interestAmount": "Zinsen",
       "amortizationAmount": "Tilgung",
@@ -32,6 +31,7 @@
       "remainingDebtAtEndOfPeriod": "Restschuld am Ende der Periode"
     }
   },
+  "currency": "EUR",
   "hooks": {
     "useLangSettings": {
       "tooltipTitle": "Sprache ändern"

@@ -4,10 +4,9 @@ import type { MonthlyPaymentDetails } from './types';
 
 export class CalculationService {
   calculateMonthlyPaymentDetails(
-    input: CalculationInputDto
+    filter: CalculationInputDto
   ): MonthlyPaymentDetails {
-    const monthlyPaymentData = utils.getMonthlyPaymentDataFromInput(input);
-
+    const monthlyPaymentData = utils.getMonthlyPaymentDataFromInput(filter);
     return {
       fixedMonthlyPayment: monthlyPaymentData.fixedMonthlyPayment,
       ...utils.compileMonthlyPaymentSummary(monthlyPaymentData),

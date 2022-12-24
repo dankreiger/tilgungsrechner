@@ -1,5 +1,5 @@
+import { Locale } from '@immo/loans/graphql';
 import Index from '../pages/index';
-import { SupportedLocales } from '../public/locales';
 import { renderWithProviders } from './utils';
 
 jest.mock('next-intl', () => ({
@@ -14,11 +14,11 @@ jest.mock('@apollo/client', () => ({
   InMemoryCache: jest.fn(),
 }));
 
-const mockLocaleDict = SupportedLocales;
+const mockLocaleDict = Locale;
 jest.mock('next/router', () => ({
   useRouter: jest.fn(() => ({
     asPath: '/',
-    locale: mockLocaleDict['de-DE'],
+    locale: mockLocaleDict['de'],
     locales: Object.values(mockLocaleDict),
     pathname: '/',
     push: jest.fn(),

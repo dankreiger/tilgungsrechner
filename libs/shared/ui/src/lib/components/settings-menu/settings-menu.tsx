@@ -10,13 +10,14 @@ import { SettingsMenuProps } from './internal';
 export type { SettingsMenuItem } from './internal';
 
 export const SettingsMenu: FC<SettingsMenuProps> = ({
+  activeItem: act,
   avatarProps,
   items,
   sx,
   tooltipTitle = 'Open settings',
 }) => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const [activeItem, setActiveItem] = useState('');
+  const [activeItem, setActiveItem] = useState(act);
   const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };

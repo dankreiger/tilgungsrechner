@@ -21,21 +21,40 @@ export type Scalars = {
   Float: number;
 };
 
-export type MonthlyPaymentOverviewItem = {
-  __typename?: 'MonthlyPaymentOverviewItem';
+export enum Country {
+  De = 'DE',
+  Us = 'US',
+}
+
+export enum Currency {
+  Eur = 'EUR',
+  Usd = 'USD',
+}
+
+export type FormattedMonthlyPaymentOverviewStats = {
+  __typename?: 'FormattedMonthlyPaymentOverviewStats';
   amortizationAmount: Scalars['Float'];
   fixedMonthlyPayment: Scalars['Float'];
   interestAmount: Scalars['Float'];
-  monthNumber: Scalars['Int'];
   remainingDebt: Scalars['Float'];
-  yearNumber: Scalars['Int'];
+};
+
+export enum Lang {
+  De = 'de',
+  En = 'en',
+}
+
+export type MonthlyPaymentOverviewItem = {
+  __typename?: 'MonthlyPaymentOverviewItem';
+  monthNumber: Scalars['Int'];
+  stats: FormattedMonthlyPaymentOverviewStats;
 };
 
 export type PaymentDetails = {
   __typename?: 'PaymentDetails';
   fixedMonthlyPayment: Scalars['Float'];
-  monthlyOverviewList?: Maybe<Array<Maybe<MonthlyPaymentOverviewItem>>>;
-  remainingDebtAtEndOfFixedInterestPeriod?: Maybe<Scalars['Float']>;
+  monthlyOverviewList: Array<Maybe<MonthlyPaymentOverviewItem>>;
+  remainingDebtAtEndOfFixedInterestPeriod: Scalars['Float'];
 };
 
 export type PaymentDetailsFilter = {
@@ -51,11 +70,11 @@ export type Query = {
 };
 
 export type QueryLoanRepaymentDetailsArgs = {
-  filter?: InputMaybe<PaymentDetailsFilter>;
+  filter: PaymentDetailsFilter;
 };
 
 export type GetLoanRepaymentDetailsQueryVariables = Exact<{
-  filter?: InputMaybe<PaymentDetailsFilter>;
+  filter: PaymentDetailsFilter;
 }>;
 
 export type GetLoanRepaymentDetailsQuery = {
@@ -63,31 +82,34 @@ export type GetLoanRepaymentDetailsQuery = {
   loanRepaymentDetails: {
     __typename?: 'PaymentDetails';
     fixedMonthlyPayment: number;
-    remainingDebtAtEndOfFixedInterestPeriod?: number | null;
-    monthlyOverviewList?: Array<{
+    remainingDebtAtEndOfFixedInterestPeriod: number;
+    monthlyOverviewList: Array<{
       __typename?: 'MonthlyPaymentOverviewItem';
       monthNumber: number;
-      yearNumber: number;
-      remainingDebt: number;
-      fixedMonthlyPayment: number;
-      interestAmount: number;
-      amortizationAmount: number;
-    } | null> | null;
+      stats: {
+        __typename?: 'FormattedMonthlyPaymentOverviewStats';
+        remainingDebt: number;
+        fixedMonthlyPayment: number;
+        interestAmount: number;
+        amortizationAmount: number;
+      };
+    } | null>;
   };
 };
 
 export const GetLoanRepaymentDetailsDocument = gql`
-  query GetLoanRepaymentDetails($filter: PaymentDetailsFilter) {
+  query GetLoanRepaymentDetails($filter: PaymentDetailsFilter!) {
     loanRepaymentDetails(filter: $filter) {
       fixedMonthlyPayment
       remainingDebtAtEndOfFixedInterestPeriod
       monthlyOverviewList {
         monthNumber
-        yearNumber
-        remainingDebt
-        fixedMonthlyPayment
-        interestAmount
-        amortizationAmount
+        stats {
+          remainingDebt
+          fixedMonthlyPayment
+          interestAmount
+          amortizationAmount
+        }
       }
     }
   }
@@ -110,7 +132,7 @@ export const GetLoanRepaymentDetailsDocument = gql`
  * });
  */
 export function useGetLoanRepaymentDetailsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     GetLoanRepaymentDetailsQuery,
     GetLoanRepaymentDetailsQueryVariables
   >

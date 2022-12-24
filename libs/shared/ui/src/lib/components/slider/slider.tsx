@@ -4,39 +4,48 @@ import { red } from '@mui/material/colors';
 import MuiSlider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import { identity } from 'ramda';
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import { SliderProps } from './internal';
 
-export const Slider: FC<SliderProps> = ({
-  label,
-  min,
-  max,
-  value,
-  step = 1,
-  errorMsg,
-  onChange,
-  xf = identity,
-}) => {
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Typography id="non-linear-slider" gutterBottom>
-        {label}: {xf(value)}
-      </Typography>
-      <MuiSlider
-        value={value}
-        min={min}
-        step={step}
-        max={max}
-        scale={xf}
-        getAriaValueText={() => String(xf(value))}
-        valueLabelFormat={label}
-        onChange={onChange}
-        valueLabelDisplay="auto"
-        aria-labelledby="non-linear-slider"
-      />
-      {errorMsg && (
-        <FormHelperText sx={{ color: red[400] }}>{errorMsg}</FormHelperText>
-      )}
-    </Box>
-  );
-};
+export const Slider: FC<SliderProps> = forwardRef(
+  (
+    {
+      label,
+      min,
+      max,
+      value,
+      step = 1,
+      errorMsg,
+      onChange,
+      defaultValue = 1,
+      name,
+      xf = identity,
+    },
+    ref
+  ) => {
+    return (
+      <Box ref={ref} sx={{ width: '100%' }}>
+        <Typography id="non-linear-slider" gutterBottom>
+          {label}: {xf(value)}
+        </Typography>
+        <MuiSlider
+          value={value}
+          defaultValue={defaultValue}
+          min={min}
+          step={step}
+          max={max}
+          scale={xf}
+          getAriaValueText={() => String(xf(value))}
+          valueLabelFormat={label}
+          onChange={onChange}
+          name={name}
+          valueLabelDisplay="auto"
+          aria-labelledby="non-linear-slider"
+        />
+        {errorMsg && (
+          <FormHelperText sx={{ color: red[400] }}>{errorMsg}</FormHelperText>
+        )}
+      </Box>
+    );
+  }
+);

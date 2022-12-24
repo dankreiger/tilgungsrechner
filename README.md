@@ -82,7 +82,7 @@ http://localhost:3333/graphql - GraphQL Playground
 
 ### Live-Demo
 
-[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://tilgungsrechner.vercel.app/de-DE)
+[![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)](https://tilgungsrechner.vercel.app)
 
 ### Design System
 

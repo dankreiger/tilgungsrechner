@@ -6,6 +6,7 @@ export interface SettingsMenuItem {
 }
 
 export interface SettingsMenuProps {
+  activeItem: string;
   avatarProps: AvatarProps;
   items: SettingsMenuItem[];
   sx?: SxProps;

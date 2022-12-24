@@ -1,14 +1,15 @@
-query GetLoanRepaymentDetails($filter: PaymentDetailsFilter) {
+query GetLoanRepaymentDetails($filter: PaymentDetailsFilter!) {
   loanRepaymentDetails(filter: $filter) {
     fixedMonthlyPayment
     remainingDebtAtEndOfFixedInterestPeriod
     monthlyOverviewList {
       monthNumber
-      yearNumber
-      remainingDebt
-      fixedMonthlyPayment
-      interestAmount
-      amortizationAmount
+      stats {
+        remainingDebt
+        fixedMonthlyPayment
+        interestAmount
+        amortizationAmount
+      }
     }
   }
 }

@@ -1,19 +1,14 @@
-import { CalculationState } from '@immo/loans/types';
-import type { Reducer } from 'react';
-import type { ActionType } from './calculator.action-types';
+import { SubmitHandler } from 'react-hook-form';
+import { z } from 'zod';
+import { calculatorSchema } from './calculator.schema';
 
-type CalculatorAction =
-  | {
-      type:
-        | typeof ActionType.SET_LOAN_AMOUNT
-        | typeof ActionType.SET_BORROWING_RATE
-        | typeof ActionType.SET_REPAYMENT_RATE
-        | typeof ActionType.SET_FIXED_INTEREST_PERIOD_IN_YEARS;
-      payload: number;
-    }
-  | {
-      type: typeof ActionType.SET_PAYOUT_DATE;
-      payload: Date | undefined;
-    };
+import { GetLoanRepaymentDetailsQuery } from '@immo/loans/graphql';
 
-export type CalculatorReducer = Reducer<CalculationState, CalculatorAction>;
+export type CalculatorSchema = Required<z.infer<typeof calculatorSchema>>;
+export interface CalculatorTableProps {
+  loanRepaymentDetails: GetLoanRepaymentDetailsQuery['loanRepaymentDetails'];
+}
+
+export interface CalculatorFormProps {
+  onSubmit: SubmitHandler<CalculatorSchema>;
+}

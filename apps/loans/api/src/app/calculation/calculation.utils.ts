@@ -7,27 +7,22 @@ const percentToDecimal = (percent: number) => percent / 100;
 const yearlyToMonthly = (years: number) => years / 12;
 const yearlyPercentToMonthlyDecimal = pipe(percentToDecimal, yearlyToMonthly);
 
-const getMonthlyPaymentDataFromInput = (input: CalculationInputDto) => {
+const getMonthlyPaymentDataFromInput = (filter: CalculationInputDto) => {
   const monthlyInterestDecimal = yearlyPercentToMonthlyDecimal(
-    input.borrowingRate
+    filter.borrowingRate
   );
   const monthlyAmortizationDecimal = yearlyPercentToMonthlyDecimal(
-    input.repaymentRate
+    filter.repaymentRate
   );
 
   return {
-    fixedInterestPeriodInMonths: input.fixedInterestPeriodInYears * 12,
+    fixedInterestPeriodInMonths: filter.fixedInterestPeriodInYears * 12,
     fixedMonthlyPayment:
-      monthlyInterestDecimal * input.loanAmount +
-      monthlyAmortizationDecimal * input.loanAmount,
-    loanAmount: input.loanAmount,
+      monthlyInterestDecimal * filter.loanAmount +
+      monthlyAmortizationDecimal * filter.loanAmount,
+    loanAmount: filter.loanAmount,
     monthlyInterestDecimal,
   };
-};
-
-type MonthlyPaymentSummary = {
-  remainingDebtAtEndOfFixedInterestPeriod: number;
-  monthlyOverviewList: MonthlyPaymentOverviewItem[];
 };
 
 const compileMonthlyPaymentSummary = (opts: {
@@ -35,7 +30,10 @@ const compileMonthlyPaymentSummary = (opts: {
   fixedMonthlyPayment: number;
   monthlyInterestDecimal: number;
   loanAmount: number;
-}): MonthlyPaymentSummary => {
+}): {
+  remainingDebtAtEndOfFixedInterestPeriod: number;
+  monthlyOverviewList: MonthlyPaymentOverviewItem[];
+} => {
   const {
     fixedInterestPeriodInMonths,
     fixedMonthlyPayment,
@@ -52,7 +50,6 @@ const compileMonthlyPaymentSummary = (opts: {
       idx
     ) => {
       const monthNumber = idx + 1;
-      const yearNumber = Math.ceil(monthNumber / 12);
 
       const interest = remainingDebt * monthlyInterestDecimal;
       const amortization = fixedMonthlyPayment - interest;
@@ -62,12 +59,13 @@ const compileMonthlyPaymentSummary = (opts: {
         monthlyOverviewList: [
           ...monthlyOverviewList,
           {
-            monthNumber: monthNumber,
-            yearNumber: yearNumber,
-            remainingDebt: remainingDebt - amortization,
-            fixedMonthlyPayment: fixedMonthlyPayment,
-            interestAmount: interest,
-            amortizationAmount: amortization,
+            monthNumber,
+            stats: {
+              fixedMonthlyPayment,
+              interestAmount: interest,
+              amortizationAmount: amortization,
+              remainingDebt: remainingDebt - amortization,
+            },
           },
         ],
       };

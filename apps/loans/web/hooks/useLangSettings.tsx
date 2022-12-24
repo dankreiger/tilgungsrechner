@@ -16,19 +16,14 @@ export const useLangSettings = () => {
   );
 
   const menu = useMemo(() => {
-    const items = locales.reduce<SettingsMenuItem[]>((acc, current) => {
-      if (current === 'default') return acc;
-      return [
-        ...acc,
-        {
-          text: current,
-          onClick: handleClick(current),
-        },
-      ];
-    }, []);
+    const items = locales.map<SettingsMenuItem>((current) => ({
+      text: current,
+      onClick: handleClick(current),
+    }));
 
     return (
       <SettingsMenu
+        activeItem={locale}
         tooltipTitle={t('tooltipTitle')}
         items={items}
         avatarProps={{

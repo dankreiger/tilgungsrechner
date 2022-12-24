@@ -27,9 +27,8 @@ const plugins = composePlugins(withPWA, withNx);
 
 module.exports = plugins({
   i18n: {
-    locales: ['default', 'de-DE', 'en-US'],
-    defaultLocale: 'default',
-    localeDetection: false,
+    locales: ['de-DE', 'en-US'],
+    defaultLocale: 'de-DE',
   },
   nx: {
     svgr: true,
