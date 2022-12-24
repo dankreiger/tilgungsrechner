@@ -2,15 +2,9 @@ import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -23,12 +17,12 @@ export type Scalars = {
 
 export enum Country {
   De = 'DE',
-  Us = 'US',
+  Us = 'US'
 }
 
 export enum Currency {
   Eur = 'EUR',
-  Usd = 'USD',
+  Usd = 'USD'
 }
 
 export type FormattedMonthlyPaymentOverviewStats = {
@@ -41,7 +35,7 @@ export type FormattedMonthlyPaymentOverviewStats = {
 
 export enum Lang {
   De = 'de',
-  En = 'en',
+  En = 'en'
 }
 
 export type MonthlyPaymentOverviewItem = {
@@ -69,6 +63,7 @@ export type Query = {
   loanRepaymentDetails: PaymentDetails;
 };
 
+
 export type QueryLoanRepaymentDetailsArgs = {
   filter: PaymentDetailsFilter;
 };
@@ -77,43 +72,27 @@ export type GetLoanRepaymentDetailsQueryVariables = Exact<{
   filter: PaymentDetailsFilter;
 }>;
 
-export type GetLoanRepaymentDetailsQuery = {
-  __typename?: 'Query';
-  loanRepaymentDetails: {
-    __typename?: 'PaymentDetails';
-    fixedMonthlyPayment: number;
-    remainingDebtAtEndOfFixedInterestPeriod: number;
-    monthlyOverviewList: Array<{
-      __typename?: 'MonthlyPaymentOverviewItem';
-      monthNumber: number;
-      stats: {
-        __typename?: 'FormattedMonthlyPaymentOverviewStats';
-        remainingDebt: number;
-        fixedMonthlyPayment: number;
-        interestAmount: number;
-        amortizationAmount: number;
-      };
-    } | null>;
-  };
-};
+
+export type GetLoanRepaymentDetailsQuery = { __typename?: 'Query', loanRepaymentDetails: { __typename?: 'PaymentDetails', fixedMonthlyPayment: number, remainingDebtAtEndOfFixedInterestPeriod: number, monthlyOverviewList: Array<{ __typename?: 'MonthlyPaymentOverviewItem', monthNumber: number, stats: { __typename?: 'FormattedMonthlyPaymentOverviewStats', remainingDebt: number, fixedMonthlyPayment: number, interestAmount: number, amortizationAmount: number } } | null> } };
+
 
 export const GetLoanRepaymentDetailsDocument = gql`
-  query GetLoanRepaymentDetails($filter: PaymentDetailsFilter!) {
-    loanRepaymentDetails(filter: $filter) {
-      fixedMonthlyPayment
-      remainingDebtAtEndOfFixedInterestPeriod
-      monthlyOverviewList {
-        monthNumber
-        stats {
-          remainingDebt
-          fixedMonthlyPayment
-          interestAmount
-          amortizationAmount
-        }
+    query GetLoanRepaymentDetails($filter: PaymentDetailsFilter!) {
+  loanRepaymentDetails(filter: $filter) {
+    fixedMonthlyPayment
+    remainingDebtAtEndOfFixedInterestPeriod
+    monthlyOverviewList {
+      monthNumber
+      stats {
+        remainingDebt
+        fixedMonthlyPayment
+        interestAmount
+        amortizationAmount
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useGetLoanRepaymentDetailsQuery__
@@ -131,37 +110,14 @@ export const GetLoanRepaymentDetailsDocument = gql`
  *   },
  * });
  */
-export function useGetLoanRepaymentDetailsQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetLoanRepaymentDetailsQuery,
-    GetLoanRepaymentDetailsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    GetLoanRepaymentDetailsQuery,
-    GetLoanRepaymentDetailsQueryVariables
-  >(GetLoanRepaymentDetailsDocument, options);
-}
-export function useGetLoanRepaymentDetailsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetLoanRepaymentDetailsQuery,
-    GetLoanRepaymentDetailsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    GetLoanRepaymentDetailsQuery,
-    GetLoanRepaymentDetailsQueryVariables
-  >(GetLoanRepaymentDetailsDocument, options);
-}
-export type GetLoanRepaymentDetailsQueryHookResult = ReturnType<
-  typeof useGetLoanRepaymentDetailsQuery
->;
-export type GetLoanRepaymentDetailsLazyQueryHookResult = ReturnType<
-  typeof useGetLoanRepaymentDetailsLazyQuery
->;
-export type GetLoanRepaymentDetailsQueryResult = Apollo.QueryResult<
-  GetLoanRepaymentDetailsQuery,
-  GetLoanRepaymentDetailsQueryVariables
->;
+export function useGetLoanRepaymentDetailsQuery(baseOptions: Apollo.QueryHookOptions<GetLoanRepaymentDetailsQuery, GetLoanRepaymentDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetLoanRepaymentDetailsQuery, GetLoanRepaymentDetailsQueryVariables>(GetLoanRepaymentDetailsDocument, options);
+      }
+export function useGetLoanRepaymentDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetLoanRepaymentDetailsQuery, GetLoanRepaymentDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetLoanRepaymentDetailsQuery, GetLoanRepaymentDetailsQueryVariables>(GetLoanRepaymentDetailsDocument, options);
+        }
+export type GetLoanRepaymentDetailsQueryHookResult = ReturnType<typeof useGetLoanRepaymentDetailsQuery>;
+export type GetLoanRepaymentDetailsLazyQueryHookResult = ReturnType<typeof useGetLoanRepaymentDetailsLazyQuery>;
+export type GetLoanRepaymentDetailsQueryResult = Apollo.QueryResult<GetLoanRepaymentDetailsQuery, GetLoanRepaymentDetailsQueryVariables>;
