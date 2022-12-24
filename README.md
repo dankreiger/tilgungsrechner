@@ -90,7 +90,7 @@ http://localhost:3333/graphql - GraphQL Playground
 
 ### Visuelle Regressiontests
 
-[![Chromatic](https://img.shields.io/badge/-Chromatic-aaa?style=for-the-badge&logo=chromatic&logoColor=white)](https://www.chromatic.com/build?appId=63a2a22702057acaa944445f&number=3)
+[![Chromatic](https://img.shields.io/badge/-Chromatic-aaa?style=for-the-badge&logo=chromatic&logoColor=white)](https://www.chromatic.com/setup?appId=63a2a22702057acaa944445f)
 
 ---
 
