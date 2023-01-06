@@ -6,11 +6,19 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/loans/types/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/loans/types/**/*.ts"
+        ]
       }
     }
   },
-  "tags": []
+  "tags": [
+    "scope:loans",
+    "platform:agnostic",
+    "type:types"
+  ]
 }
