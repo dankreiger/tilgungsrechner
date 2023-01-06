@@ -25,6 +25,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:loans", "platform:web", "type:e2e"],
   "implicitDependencies": ["loans-web"]
 }

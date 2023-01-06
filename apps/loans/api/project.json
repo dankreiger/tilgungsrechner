@@ -66,5 +66,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:loans", "platform:server", "type:app"]
 }

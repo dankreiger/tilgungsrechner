@@ -20,5 +20,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["type:graphql", "scope:loans", "platform:web", "platform:server"]
 }

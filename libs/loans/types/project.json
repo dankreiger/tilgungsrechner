@@ -12,5 +12,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:loans", "platform:agnostic", "type:types"]
 }
