@@ -46,8 +46,7 @@ Thumbs.db
 **/public/sw.js
 **/public/fallback-*.js
 
-# # Jest test results (used for storybook test running)
-**/.jest-test-results.json
+
 
 # Secrets
 .env
